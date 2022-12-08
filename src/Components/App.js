@@ -18,16 +18,14 @@ class App extends Component {
           : this.state.cart.filter((p) => p !== id),
     });
   };
-  filterChecked = (size) => {
+  onFilterchange = (filter) => {
+    //xs || null
+    // this.setState({ filter });
     this.setState({
-      filter: [...this.state.filter, size],
+      filter: [...this.state.filter, filter],
     });
   };
-  filterUnchecked = (size) => {
-    this.setState({
-      filter: this.state.filter.filter((p) => p !== size),
-    });
-  };
+
   render() {
     console.log(this.state);
     return (
@@ -36,8 +34,8 @@ class App extends Component {
         <h5 style={{ marginLeft: '80px' }}>Size: </h5>
         <Size
           products={Products}
-          filterCheck={this.filterChecked}
-          filterUncheck={this.filterUnchecked}
+          onFilterchange={this.onFilterchange}
+          filterSeletced={this.state.filter}
         />
         <ProductDisplay
           products={Products}

@@ -20,6 +20,11 @@ export class ProductDisplay extends Component {
       pro = pro.filter((a) => this.props.size.includes(a.size));
     }
 
+
+    // if (this.props.size) {
+    //   pro = pro.filter((a) => this.props.size === a.size);
+    // }
+
     pro = pro.map((data, index) => {
       return (
         <div className="single" key={index}>
